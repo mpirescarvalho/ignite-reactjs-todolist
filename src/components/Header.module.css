@@ -1,0 +1,13 @@
+.header {
+	height: 12.5rem;
+	background-color: var(--gray-700);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	max-width: 7.875rem;
+}

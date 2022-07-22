@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import './global.css';
 
-function App() {
-	return <h1>Hello ToDo List</h1>;
+import { Header } from './components/Header';
+import { TodoInput } from './components/TodoInput';
+
+export function App() {
+	return (
+		<div>
+			<Header />
+			<TodoInput />
+		</div>
+	);
 }
-
-export default App;
