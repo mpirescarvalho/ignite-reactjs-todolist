@@ -1,6 +1,6 @@
 import { Header } from './components/Header';
-import { TodoInput } from './components/TodoInput';
-import { TodoList } from './components/TodoList';
+import { TaskInput } from './components/TaskInput';
+import { TaskList } from './components/TaskList';
 
 import styles from './App.module.css';
 
@@ -12,8 +12,8 @@ export function App() {
 			<Header />
 
 			<main className={styles.main}>
-				<TodoInput />
-				<TodoList />
+				<TaskInput />
+				<TaskList />
 			</main>
 		</div>
 	);

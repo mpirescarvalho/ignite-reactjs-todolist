@@ -1,4 +1,4 @@
-import styles from './TodoList.module.css';
+import styles from './TaskList.module.css';
 
 const tasks = [
 	{
@@ -38,7 +38,7 @@ import clipboardImg from '../assets/clipboard.png';
 
 import { Task } from './Task';
 
-export function TodoList() {
+export function TaskList() {
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>

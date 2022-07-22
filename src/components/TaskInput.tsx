@@ -1,8 +1,8 @@
 import { PlusCircle } from 'phosphor-react';
 
-import styles from './TodoInput.module.css';
+import styles from './TaskInput.module.css';
 
-export function TodoInput() {
+export function TaskInput() {
 	return (
 		<div className={styles.container}>
 			<input
