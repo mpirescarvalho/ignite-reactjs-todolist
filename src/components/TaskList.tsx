@@ -1,59 +1,54 @@
+import { Task } from './Task';
+import clipboardImg from '../assets/clipboard.png';
 import styles from './TaskList.module.css';
 
-const tasks = [
-	{
-		id: 6,
-		text:
-			'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
-		isDone: false,
-	},
-	{
-		id: 1,
-		text: 'Learn React',
-		isDone: false,
-	},
-	{
-		id: 2,
-		text: 'Build a Todo app',
-		isDone: true,
-	},
-	{
-		id: 3,
-		text: 'Deploy to Github Pages',
-		isDone: false,
-	},
-	{
-		id: 4,
-		text: 'Create a pull request',
-		isDone: false,
-	},
-	{
-		id: 5,
-		text: 'Create tasks',
-		isDone: true,
-	},
-];
+interface TaskListProps {
+	tasks: Array<{
+		id: string;
+		text: string;
+		isDone: boolean;
+	}>;
+	onToggleTaskDone: (taskId: string) => void;
+	onDeleteTask: (taskId: string) => void;
+}
 
-import clipboardImg from '../assets/clipboard.png';
+export function TaskList({
+	tasks,
+	onToggleTaskDone,
+	onDeleteTask,
+}: TaskListProps) {
+	const allTasksCount = tasks.length;
+	const completedTasksCount = tasks.reduce((acc, task) => {
+		if (task.isDone) {
+			return acc + 1;
+		}
 
-import { Task } from './Task';
+		return acc;
+	}, 0);
 
-export function TaskList() {
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>
 				<p className={styles.allTasks}>
-					Tarefas criadas<span>5</span>
+					Tarefas criadas<span>{allTasksCount}</span>
 				</p>
 				<p className={styles.finishedTasks}>
-					Concluídas<span>2 de 5</span>
+					Concluídas
+					<span>
+						{completedTasksCount} de {allTasksCount}
+					</span>
 				</p>
 			</div>
 
 			{tasks.length > 0 ? (
 				<div className={styles.taskList}>
 					{tasks.map((task) => (
-						<Task key={task.id} task={task} />
+						<Task
+							key={task.id}
+							task={task}
+							onCheckClick={() => onToggleTaskDone(task.id)}
+							onDeleteClick={() => onDeleteTask(task.id)}
+						/>
 					))}
 				</div>
 			) : (
